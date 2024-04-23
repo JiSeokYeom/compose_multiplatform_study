@@ -39,6 +39,8 @@ kotlin {
 
             implementation(libs.ktor.client.okhttp)
 
+            implementation(libs.kotlinx.coroutines.android)
+
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
         }
@@ -54,6 +56,9 @@ kotlin {
 
             // ktor
             implementation(libs.ktor.client.core)
+
+            // coroutine
+            implementation(libs.kotlinx.coroutines.core)
 
             implementation(compose.runtime)
             implementation(compose.foundation)
