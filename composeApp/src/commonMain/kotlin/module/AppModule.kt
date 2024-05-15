@@ -1,13 +1,12 @@
 package module
 
 import io.ktor.client.HttpClient
-import io.ktor.client.plugins.HttpTimeout
-import io.ktor.client.plugins.defaultRequest
-import io.ktor.http.ContentType.Application.Json
-import io.ktor.http.URLBuilder
-import io.ktor.http.takeFrom
-import org.jetbrains.skia.skottie.LogLevel
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.http.ContentType
+import io.ktor.serialization.kotlinx.json.json
+import kotlinx.serialization.json.Json
 import org.koin.dsl.module
+import repository.NetworkRepository
 
 private val networkModule = module {
     single {
@@ -34,4 +33,18 @@ private val networkModule = module {
             }
         }*/
     }
+}
+
+val provideHttpClientModule = module {
+    single {
+        HttpClient {
+            install(ContentNegotiation) {
+                json(json = Json { ignoreUnknownKeys = true }, contentType = ContentType.Any)
+            }
+        }
+    }
+}
+
+val provideRepositoryModule = module {
+    single<NetworkRepository> { NetworkRepository(get()) }
 }

@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
+    kotlin("plugin.serialization") version "1.5.0"
 }
 
 kotlin {
@@ -37,6 +38,7 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.koin.android)
 
+            implementation(libs.ktor.client.android)
             implementation(libs.ktor.client.okhttp)
 
             implementation(libs.kotlinx.coroutines.android)
@@ -56,13 +58,22 @@ kotlin {
 
             // ktor
             implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.kotlin.serialization.ktor)
+
+            // moko
+            implementation(libs.moko.compose)
+            api(libs.moko.flow)
+            api(libs.moko.livedata)
 
             // coroutine
             implementation(libs.kotlinx.coroutines.core)
 
+            implementation(libs.kotlin.serialization)
+            implementation(libs.kotlin.datetime)
             implementation(compose.runtime)
             implementation(compose.foundation)
-            implementation(compose.material)
+            implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
