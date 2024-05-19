@@ -5,15 +5,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import api.model.RequestState
 import io.ktor.util.logging.KtorSimpleLogger
-import org.koin.core.logger.Level
-import org.koin.core.logger.Logger
 
 @Composable
 fun HomeScreen(
@@ -32,12 +28,14 @@ fun HomeScreen(
         }
     }*/
 
+
+
     Surface(
         modifier = Modifier.fillMaxSize()
     ) {
         KtorSimpleLogger("RequestState.Idle")
         Text(
-            text = "test 화면"
+            text = "test 화면 \n $responseData"
         )
     }
 }

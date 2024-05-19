@@ -1,10 +1,8 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
-
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
-    kotlin("plugin.serialization") version "1.5.0"
+    alias(libs.plugins.kotlinSerialization)
 }
 
 kotlin {
