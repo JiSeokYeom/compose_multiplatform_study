@@ -67,6 +67,9 @@ kotlin {
             // coroutine
             implementation(libs.kotlinx.coroutines.core)
 
+            // datastore
+            implementation(libs.androidx.datastore.core)
+
             implementation(libs.kotlin.serialization)
             implementation(libs.kotlin.datetime)
             implementation(compose.runtime)

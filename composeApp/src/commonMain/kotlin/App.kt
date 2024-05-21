@@ -1,39 +1,28 @@
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.LightingColorFilter
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
 import org.jetbrains.compose.resources.ExperimentalResourceApi
-import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
-import org.koin.core.context.startKoin
 import presentation.HomeScreen
-import study.composeapp.generated.resources.Res
-import study.composeapp.generated.resources.compose_multiplatform
 import ui.theme.darkScheme
 import ui.theme.lightScheme
 
 @OptIn(ExperimentalResourceApi::class)
+val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
+
 @Composable
 @Preview
 fun App() {
 
     val colors = if (!isSystemInDarkTheme()) lightScheme else darkScheme
-  /*  startKoin {
-        printLogger() // Log Koin activity (optional)
-        modules(appModule) // Load your Koin module
-    }*/
+    /*  startKoin {
+          printLogger() // Log Koin activity (optional)
+          modules(appModule) // Load your Koin module
+      }*/
 
     MaterialTheme(
         colorScheme = colors,
